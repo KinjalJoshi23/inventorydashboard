@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS products (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  category VARCHAR(100) NOT NULL,
+  sku VARCHAR(100),
+  quantity INTEGER NOT NULL DEFAULT 0,
+  unit VARCHAR(20) NOT NULL DEFAULT 'pcs',
+  price NUMERIC(10, 2) NOT NULL DEFAULT 0,
+  status VARCHAR(20) NOT NULL DEFAULT 'In Stock',
+  supplier VARCHAR(255),
+  description TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
