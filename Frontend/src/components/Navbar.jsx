@@ -12,9 +12,9 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-linear-to-r from-violet-700 via-fuchsia-600 to-orange-500 shadow-lg shadow-fuchsia-900/30">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 py-4 pl-16 pr-4 sm:py-5 sm:pr-6 lg:pr-8">
         <Link to="/" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/15 ring-1 ring-white/30 backdrop-blur-sm">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/15 ring-1 ring-white/30 backdrop-blur-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -30,15 +30,15 @@ const Navbar = () => {
               <path d="M12 22.08V12" />
             </svg>
           </span>
-          <span className="text-lg font-semibold tracking-tight text-white drop-shadow-sm">
+          <span className="text-base font-semibold tracking-tight text-white drop-shadow-sm sm:text-lg">
             Inventory<span className="text-orange-200">Insights</span>
           </span>
         </Link>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-2 sm:gap-4">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-sm font-medium text-white ring-1 ring-white/25 backdrop-blur-sm transition hover:bg-white/20"
+            className="inline-flex items-center gap-2 rounded-lg bg-white/10 px-3 py-2 text-sm font-medium text-white ring-1 ring-white/25 backdrop-blur-sm transition hover:bg-white/20 sm:px-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,14 +55,14 @@ const Navbar = () => {
               <rect x="14" y="12" width="7" height="9" rx="1" />
               <rect x="3" y="16" width="7" height="5" rx="1" />
             </svg>
-            Dashboard
+            <span className="hidden sm:inline">Dashboard</span>
           </Link>
 
           <button
             type="button"
             onClick={handleRefresh}
             disabled={isRefreshing}
-            className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-amber-400 to-rose-500 px-4 py-2 text-sm font-semibold text-white shadow-md shadow-rose-900/30 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
+            className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-amber-400 to-rose-500 px-3 py-2 text-sm font-semibold text-white shadow-md shadow-rose-900/30 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70 sm:px-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +79,7 @@ const Navbar = () => {
               <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
               <path d="M3 21v-5h5" />
             </svg>
-            Refresh
+            <span className="hidden sm:inline">Refresh</span>
           </button>
         </div>
       </div>

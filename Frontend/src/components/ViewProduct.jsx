@@ -66,8 +66,8 @@ const ViewProduct = ({ isOpen, onClose, product }) => {
         <div className="max-h-[65vh] overflow-y-auto px-6 py-5">
           <div className="space-y-5">
             <SectionTitle>Basic information</SectionTitle>
-            <div className="grid grid-cols-2 gap-4">
-              <DetailField label="Product Name" value={product.name} className="col-span-2" />
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <DetailField label="Product Name" value={product.name} className="sm:col-span-2" />
               <DetailField label="Category" value={product.category} />
               <DetailField label="SKU" value={product.sku} />
             </div>
@@ -75,7 +75,7 @@ const ViewProduct = ({ isOpen, onClose, product }) => {
             <hr className="border-slate-100" />
 
             <SectionTitle>Pricing &amp; stock</SectionTitle>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <DetailField label="Quantity" value={`${product.quantity} ${product.unit}`} />
               <DetailField label="Price" value={`₹${product.price}`} />
               <DetailField
@@ -91,9 +91,9 @@ const ViewProduct = ({ isOpen, onClose, product }) => {
             <hr className="border-slate-100" />
 
             <SectionTitle>Additional details</SectionTitle>
-            <div className="grid grid-cols-2 gap-4">
-              <DetailField label="Supplier" value={product.supplier} className="col-span-2" />
-              <DetailField label="Description" value={product.description} className="col-span-2" />
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <DetailField label="Supplier" value={product.supplier} className="sm:col-span-2" />
+              <DetailField label="Description" value={product.description} className="sm:col-span-2" />
             </div>
           </div>
 

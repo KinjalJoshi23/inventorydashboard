@@ -74,8 +74,8 @@ const EditProduct = ({ isOpen, onClose, onSave, product }) => {
         <form onSubmit={handleSubmit} className="max-h-[65vh] overflow-y-auto px-6 py-5">
           <div className="space-y-5">
             <SectionTitle>Basic information</SectionTitle>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="col-span-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="sm:col-span-2">
                 <label className={labelClass}>Product Name</label>
                 <input
                   name="name"
@@ -125,7 +125,7 @@ const EditProduct = ({ isOpen, onClose, onSave, product }) => {
             <hr className="border-slate-100" />
 
             <SectionTitle>Pricing &amp; stock</SectionTitle>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div>
                 <label className={labelClass}>Quantity</label>
                 <input
@@ -169,7 +169,7 @@ const EditProduct = ({ isOpen, onClose, onSave, product }) => {
             <hr className="border-slate-100" />
 
             <SectionTitle>Additional details</SectionTitle>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className={labelClass}>Status</label>
                 <select name="status" value={form.status} onChange={handleChange} className={inputClass}>
@@ -191,7 +191,7 @@ const EditProduct = ({ isOpen, onClose, onSave, product }) => {
                 />
               </div>
 
-              <div className="col-span-2">
+              <div className="sm:col-span-2">
                 <label className={labelClass}>Description</label>
                 <textarea
                   name="description"

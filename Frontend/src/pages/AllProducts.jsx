@@ -51,7 +51,7 @@ const AllProducts = () => {
       <Sidebar />
       <Navbar />
 
-      <main className="px-6 py-8 sm:px-10">
+      <main className="px-4 py-6 sm:px-6 sm:py-8 lg:px-10">
         <div>
           <h1 className="text-2xl font-semibold text-slate-900">All Products List</h1>
           
@@ -63,12 +63,12 @@ const AllProducts = () => {
           </div>
         )}
 
-        <div className="mt-8 flex items-center justify-between gap-4">
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-sm font-semibold text-slate-700">
             All Products <span className="text-slate-400">({filteredProducts.length})</span>
           </h2>
 
-          <div className="relative w-full max-w-sm mb-3">
+          <div className="relative w-full sm:max-w-sm sm:mb-3">
             <span className="pointer-events-none absolute left-3.5 top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-full bg-linear-to-br from-violet-500 to-fuchsia-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +120,8 @@ const AllProducts = () => {
         </div>
 
         <div className="mt-3 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-          <table className="w-full text-center text-medium">
+          <div className="table-scroll">
+          <table className="w-full min-w-150 text-center text-medium">
             <thead className="bg-indigo-600">
               <tr>
                 <th className="px-5 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-white">
@@ -159,13 +160,13 @@ const AllProducts = () => {
               ) : (
                 paginatedProducts.map((product) => (
                   <tr key={product.id} className="transition hover:bg-slate-50/80">
-                    <td className="relative px-5 py-4">
-                      <span className="absolute left-5 top-1/2 flex h-9 w-9 -translate-y-1/2 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-sm font-semibold text-indigo-600">
-                        {product.name?.charAt(0).toUpperCase() || "?"}
-                      </span>
-                      <span className="block text-center font-medium text-slate-900">
-                        {product.name}
-                      </span>
+                    <td className="px-5 py-4">
+                      <div className="flex items-center justify-center gap-3">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-sm font-semibold text-indigo-600">
+                          {product.name?.charAt(0).toUpperCase() || "?"}
+                        </span>
+                        <span className="font-medium text-slate-900">{product.name}</span>
+                      </div>
                     </td>
                     <td className="px-5 py-4">
                       <span className="inline-flex rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
@@ -191,16 +192,17 @@ const AllProducts = () => {
               )}
             </tbody>
           </table>
+          </div>
 
           {!isLoading && filteredProducts.length > 0 && (
-            <div className="flex items-center justify-between border-t border-slate-100 px-5 py-3">
+            <div className="flex flex-col gap-3 border-t border-slate-100 px-5 py-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-xs text-slate-500">
                 Showing {(safePage - 1) * PAGE_SIZE + 1}–
                 {Math.min(safePage * PAGE_SIZE, filteredProducts.length)} of{" "}
                 {filteredProducts.length} products
               </p>
 
-              <div className="flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center gap-1.5">
                 <button
                   type="button"
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}

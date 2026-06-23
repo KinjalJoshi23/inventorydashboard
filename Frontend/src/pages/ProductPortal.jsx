@@ -150,17 +150,17 @@ const ProductPortal = () => {
       <Sidebar />
       <Navbar />
 
-      <main className="px-6 py-8 sm:px-10">
-        <div className="flex items-center justify-between gap-4">
+      <main className="px-4 py-6 sm:px-6 sm:py-8 lg:px-10">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-2xl font-semibold text-slate-900">Product Portal</h1>
-            
+
           </div>
 
           <button
             type="button"
             onClick={() => setIsAddModalOpen(true)}
-            className="inline-flex items-center gap-2 rounded-lg bg-linear-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-fuchsia-200 transition hover:brightness-110"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-fuchsia-200 transition hover:brightness-110"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -237,7 +237,8 @@ const ProductPortal = () => {
         )}
 
         <div className="mt-3 overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
-          <table className="w-full text-center text-medium">
+          <div className="table-scroll">
+          <table className="w-full min-w-190 text-center text-medium">
             <thead className="bg-indigo-600">
               <tr>
                 <th className="w-10 px-5 py-3.5">
@@ -297,13 +298,13 @@ const ProductPortal = () => {
                         className="h-4 w-4 cursor-pointer rounded border-slate-300 text-indigo-600 focus:ring-indigo-400"
                       />
                     </td>
-                    <td className="relative px-5 py-4">
-                      <span className="absolute left-5 top-1/2 flex h-9 w-9 -translate-y-1/2 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-sm font-semibold text-indigo-600">
-                        {product.name?.charAt(0).toUpperCase() || "?"}
-                      </span>
-                      <span className="block text-center font-medium text-slate-900">
-                        {product.name}
-                      </span>
+                    <td className="px-5 py-4">
+                      <div className="flex items-center justify-center gap-3">
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-sm font-semibold text-indigo-600">
+                          {product.name?.charAt(0).toUpperCase() || "?"}
+                        </span>
+                        <span className="font-medium text-slate-900">{product.name}</span>
+                      </div>
                     </td>
                     <td className="px-5 py-4">
                       <span className="inline-flex rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-600">
@@ -400,15 +401,16 @@ const ProductPortal = () => {
               )}
             </tbody>
           </table>
+          </div>
 
           {!isLoading && products.length > 0 && (
-            <div className="flex items-center justify-between border-t border-slate-100 px-5 py-3">
+            <div className="flex flex-col gap-3 border-t border-slate-100 px-5 py-3 sm:flex-row sm:items-center sm:justify-between">
               <p className="text-xs text-slate-500">
                 Showing {(safePage - 1) * PAGE_SIZE + 1}–
                 {Math.min(safePage * PAGE_SIZE, products.length)} of {products.length} products
               </p>
 
-              <div className="flex items-center gap-1.5">
+              <div className="flex flex-wrap items-center gap-1.5">
                 <button
                   type="button"
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}

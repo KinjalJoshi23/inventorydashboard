@@ -117,12 +117,12 @@ const Dashboard = () => {
       <Sidebar />
       <Navbar />
 
-      <main className="px-6 py-8 sm:px-10">
-        <div className="relative overflow-hidden rounded-3xl bg-linear-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-8 py-8">
+      <main className="px-4 py-6 sm:px-6 sm:py-8 lg:px-10">
+        <div className="relative overflow-hidden rounded-3xl bg-linear-to-r from-violet-600 via-fuchsia-600 to-orange-500 px-5 py-6 sm:px-8 sm:py-8">
           <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-white/10" />
           <div className="absolute -bottom-16 right-24 h-40 w-40 rounded-full bg-white/10" />
           <div className="relative">
-            <h1 className="mt-1 text-3xl font-semibold text-white">Inventory Dashboard</h1>
+            <h1 className="mt-1 text-2xl font-semibold text-white sm:text-3xl">Inventory Dashboard</h1>
           </div>
         </div>
 
@@ -159,7 +159,8 @@ const Dashboard = () => {
               </Link>
             </div>
 
-            <table className="w-full text-left text-sm">
+            <div className="table-scroll">
+            <table className="w-full min-w-125 text-left text-sm">
               <thead className="bg-slate-50">
                 <tr>
                   <th className="px-5 py-3 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
@@ -220,6 +221,7 @@ const Dashboard = () => {
                 )}
               </tbody>
             </table>
+            </div>
           </div>
 
           <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">

@@ -53,7 +53,7 @@ const Reports = () => {
       <Sidebar />
       <Navbar />
 
-      <main className="px-6 py-8 sm:px-10">
+      <main className="px-4 py-6 sm:px-6 sm:py-8 lg:px-10">
         <div>
           <h1 className="text-2xl font-semibold text-slate-900">Reports</h1>
           
@@ -71,7 +71,8 @@ const Reports = () => {
               <h2 className="text-sm font-semibold text-slate-800">Category Breakdown</h2>
             </div>
 
-            <table className="w-full text-left text-sm">
+            <div className="table-scroll">
+            <table className="w-full min-w-125 text-left text-sm">
               <thead className="bg-slate-50">
                 <tr>
                   <th className="px-5 py-3 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
@@ -119,6 +120,7 @@ const Reports = () => {
                 )}
               </tbody>
             </table>
+            </div>
           </div>
 
           <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
